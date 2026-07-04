@@ -56,12 +56,15 @@ To solve this engineering constraint, the orchestration layer was refactored int
 
 # Local Setup & Installation
 To spin up this architecture locally on your machine (e.g., inside an Anaconda environment), follow these steps:
+
 **1. Clone and Navigate**
 git clone [https://github.com/RISHEET6578/SwiftNexus-AI.git](https://github.com/RISHEET6578/SwiftNexus-AI.git)
 cd SwiftNexus-AI
+
 **2. Install Dependencies**
 Bash
 pip install -r requirements.txt
+
 **3. Environment Configuration**
 Create a local .env file in the root directory: GOOGLE_API_KEY="your_actual_gemini_api_key_here"
 
