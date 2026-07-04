@@ -27,13 +27,18 @@ if user_query := st.chat_input("How can I help you with your delivery today?"):
 
     # Display a loading spinner while the multi-agent crew works
     with st.chat_message("assistant"):
-        with st.spinner("🤖 Crew is analyzing policy and verifying response..."):
+        with st.spinner("🤖 System is analyzing policy and verifying response..."):
             try:
-                # Send the query to your FastAPI backend over the local network
-                backend_url = "http://127.0.0.1:8000/api/chat"
+                # 1. Define the base URL accurately
+                FASTAPI_URL = st.secrets.get("BACKEND_URL", "http://127.0.0.1:8000")
+                
+                # 2. Append the exact route your FastAPI uses (e.g., /api/chat)
+                full_url = f"{FASTAPI_URL.strip('/')}/api/chat"
+                
                 payload = {"customer_query": user_query}
                 
-                response = requests.post(backend_url, json=payload)
+                # 3. Use the corrected variable name here!
+                response = requests.post(full_url, json=payload)
                 
                 if response.status_code == 200:
                     # Extract the final answer from the JSON response
