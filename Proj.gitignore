@@ -1,0 +1,15 @@
+# Credentials & Secrets
+.env
+*.env
+
+# Python Virtual Environments & Cache
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+env/
+venv/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
